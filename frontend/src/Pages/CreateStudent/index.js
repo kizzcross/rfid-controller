@@ -29,12 +29,14 @@ const CreateStudent = () => {
 
         // Attach an event listener to the database reference
         databaseRef.on('value', async (snapshot) => {
+
             // Get the updated data from the snapshot
             const updatedData = await snapshot.val();
+            if (updatedData!== ''){
             console.log(updatedData);
             // Update the state with the new data
             setStudent({...student, rfid: updatedData});
-            set(databaseRef, '')
+            set(databaseRef, '')}
 
 
             // Update the state with the new data
